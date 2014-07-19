@@ -2,6 +2,7 @@ package com.eitanadler.accursed;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class HomeScreenActivity extends Activity {
+
+    public final static String EXTRA_MESSAGE = "com.eitanadler.accursed.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +59,14 @@ public class HomeScreenActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_home_screen, container, false);
             return rootView;
         }
+    }
+
+    /** Called when the user clicks the Send button */
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }
