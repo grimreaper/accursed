@@ -1,25 +1,32 @@
 package com.eitanadler.accursed;
 
-import android.app.Activity;
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
-import com.eitanadler.accursed.R;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-public class DisplayMessageActivity extends Activity {
+public class DisplayMessageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
-    }
 
+        // Get the message from the intent
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(HomeScreenActivity.EXTRA_MESSAGE);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.display_message, menu);
-        return true;
+        // Create the text view
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(message);
+
+        // Set the text view as the activity layout
+        setContentView(textView);
     }
 
     @Override
@@ -33,4 +40,20 @@ public class DisplayMessageActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+        /**
+         * A placeholder fragment containing a simple view.
+         */
+        public static class PlaceholderFragment extends Fragment {
+
+            public PlaceholderFragment() { }
+
+            @Override
+            public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                     Bundle savedInstanceState) {
+                View rootView = inflater.inflate(R.layout.fragment_display_message,
+                        container, false);
+                return rootView;
+            }
+        }
 }
