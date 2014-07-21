@@ -19,7 +19,7 @@ public abstract class BaseDie {
     protected Double getExpectedValue() {
         Double ev = 0.0;
         for (Map.Entry<Integer,Integer> s: sides.entrySet()) {
-            ev += s.getKey() * s.getValue()/max_weight;
+            ev += s.getKey() * (s.getValue()/(double)max_weight);
         }
         return ev;
     }

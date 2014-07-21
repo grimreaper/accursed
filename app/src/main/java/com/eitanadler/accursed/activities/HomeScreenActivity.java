@@ -75,7 +75,9 @@ public class HomeScreenActivity extends Activity {
         String message = editText.getText().toString();
         DieExpression die_expression = new DieExpression(message);
         DieSet dieset = new DieSet(die_expression);
-        intent.putExtra(EXTRA_MESSAGE, dieset.toString());
+        String newmessage = dieset.toString();
+        newmessage += "; EV=" + dieset.getExpectedValue() + "\n";
+        intent.putExtra(EXTRA_MESSAGE, newmessage);
         startActivity(intent);
     }
 
