@@ -43,4 +43,11 @@ public class DieSet extends AbstractList<UnweightedDie> {
     public UnweightedDie remove(int location) {
         return underlying_list.remove(location);
     }
+
+    @Override
+    public String toString() {
+        return "DieSet{" +
+                "underlying_list=" + underlying_list +
+                '}';
+    }
 }
