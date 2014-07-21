@@ -19,7 +19,6 @@ public class DieExpression {
                 '}';
     }
 
-
     public String getExpression() {
         return expression;
     }
