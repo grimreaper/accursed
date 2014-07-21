@@ -1,6 +1,7 @@
 package com.eitanadler.accursed.dice;
 
 import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,14 @@ public class DieSet extends AbstractList<UnweightedDie> {
 
     private List<UnweightedDie> underlying_list;
 
+    protected List<UnweightedDie> DieExpresionToDieList(DieExpression) {
+        List<UnweightedDie> ls = new ArrayList<UnweightedDie>();
+
+        return ls;
+    }
+
     public DieSet(DieExpression de) {
-        //TODO: implement creation of DieSet from a DieExpression
+        underlying_list = DieExpresionToDieList();
     }
 
     @Override
