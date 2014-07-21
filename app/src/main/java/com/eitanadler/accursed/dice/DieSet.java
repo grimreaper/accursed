@@ -11,14 +11,14 @@ public class DieSet extends AbstractList<UnweightedDie> {
 
     private List<UnweightedDie> underlying_list;
 
-    protected List<UnweightedDie> DieExpresionToDieList(DieExpression) {
+    protected List<UnweightedDie> DieExpressionToDieList(DieExpression de) {
         List<UnweightedDie> ls = new ArrayList<UnweightedDie>();
 
         return ls;
     }
 
     public DieSet(DieExpression de) {
-        underlying_list = DieExpresionToDieList();
+        underlying_list = DieExpressionToDieList(de);
     }
 
     @Override
@@ -49,6 +49,14 @@ public class DieSet extends AbstractList<UnweightedDie> {
     @Override
     public UnweightedDie remove(int location) {
         return underlying_list.remove(location);
+    }
+
+    public double getExpectedValue() {
+        Double ev = 0.0;
+        for (UnweightedDie e : underlying_list) {
+            ev += e.getExpectedValue();
+        }
+        return ev;
     }
 
     @Override

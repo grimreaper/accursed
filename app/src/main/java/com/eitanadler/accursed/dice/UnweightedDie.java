@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by eax on 7/20/14.
  */
-public class UnweightedDie {
+public class UnweightedDie extends BaseDie {
 
     /* Most general:
            support arbitrary sides with arbitrary weights
@@ -17,17 +17,9 @@ public class UnweightedDie {
             support N sided die starting from 1
      */
 
-    protected List<String> sides;
-
-    protected Integer min_value;
-
     public UnweightedDie(List<Integer> sides) {
         for (Integer s : sides) {
-            this.sides.add(0, s.toString());
+            addSide(s, 1);
         }
-    }
-
-    public Double getExpectedValue() {
-        return (sides.doubleValue() / 2) + .5;
     }
 }
