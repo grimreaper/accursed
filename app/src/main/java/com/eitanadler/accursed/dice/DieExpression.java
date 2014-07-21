@@ -8,6 +8,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class DieExpression {
 
+    public class InvalidDieExpression extends IllegalArgumentException {};
+
     @NotNull
     protected String expression;
 
