@@ -13,7 +13,6 @@ public class DieExpression {
 
     public static class InvalidDieExpression extends IllegalArgumentException {};
 
-    @NotNull
     protected String expression;
 
     @NotNull
@@ -24,6 +23,7 @@ public class DieExpression {
                 '}';
     }
 
+    @NotNull
     public String getExpression() {
         return expression;
     }
@@ -34,31 +34,50 @@ public class DieExpression {
 
     }
 
-    static protected void validateDieExpression(@NotNull String expr) {
-        String[] dice_split = expr.split("\\+");
+    /**
+     *
+     * @param expr a full die expression
+     * @return a list of partial die expressions
+     */
+    protected static String[] getDieParts(@NotNull String expr) {
+        return expr.split("\\+");
+    }
+
+    /**
+     *
+     * @param dieexpr a single die expression
+     * @return a list of the die expression parts.
+     */
+    protected static Integer[] getDieValues(@NotNull String dieexpr) {
+        Integer[] ret = new Integer[2];
+        String[] die_specifics = dieexpr.split("d");
+        try {
+            ret[0] = Integer.parseInt(die_specifics[0]);
+            ret[1] = Integer.parseInt(die_specifics[1]);
+        }
+        catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+            throw new DieExpression.InvalidDieExpression();
+        }
+        return ret;
+    }
+
+    protected static void validateDieExpression(@NotNull String expr) {
+        String[] dice_split = getDieParts(expr);
         for (String die : dice_split) {
-            String[] die_specifics = expr.split("d");
-            try {
-                Integer amt = Integer.parseInt(die_specifics[0]);
-                Integer val = Integer.parseInt(die_specifics[1]);
-            }
-            catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
-                throw new DieExpression.InvalidDieExpression();
-            }
+            getDieValues(die);
         }
     }
 
-    static public List<UnweightedDie> DieExpressionToDieList(DieExpression de) {
+    @NotNull
+    public static List<UnweightedDie> DieExpressionToDieList(@NotNull DieExpression de) {
         //TODO: implement error handling
         List<UnweightedDie> ls = new ArrayList<UnweightedDie>();
         String expr = de.getExpression();
-        String[] dice_split = expr.split("\\+");
+        String[] dice_split = getDieParts(expr);
         for (String die : dice_split) {
-            String[] die_specifics = expr.split("d");
-            Integer amt = Integer.parseInt(die_specifics[0]);
-            Integer val = Integer.parseInt(die_specifics[1]);
-            UnweightedDie ud = new UnweightedDie(val);
-            while (amt-- > 0) {
+            Integer[] val = getDieValues(die);
+            UnweightedDie ud = new UnweightedDie(val[0]);
+            while (val[1]-- > 0) {
                 ls.add(ud);
             }
         }
