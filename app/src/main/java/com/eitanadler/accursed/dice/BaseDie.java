@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public abstract class BaseDie {
     protected Map<Integer, Integer> sides = new HashMap<Integer, Integer>();
-    protected Integer max_weight;
+    protected Integer max_weight = new Integer(0);
 
     protected void addSide(Integer value, Integer weight) {
         this.sides.put(value, weight);
@@ -23,4 +23,11 @@ public abstract class BaseDie {
         return ev;
     }
 
+    @Override
+    public String toString() {
+        return "BaseDie{" +
+                "sides=" + sides +
+                ", max_weight=" + max_weight +
+                '}';
+    }
 }

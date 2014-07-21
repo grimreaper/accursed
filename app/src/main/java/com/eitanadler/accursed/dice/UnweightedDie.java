@@ -1,5 +1,6 @@
 package com.eitanadler.accursed.dice;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,6 +21,13 @@ public class UnweightedDie extends BaseDie {
     public UnweightedDie(List<Integer> sides) {
         for (Integer s : sides) {
             addSide(s, 1);
+        }
+    }
+
+    public UnweightedDie(Integer sides) {
+        List<Integer> list = new LinkedList<Integer>();
+        while (sides-- > 0) {
+            addSide(sides, 1);
         }
     }
 }

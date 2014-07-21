@@ -12,8 +12,19 @@ public class DieSet extends AbstractList<UnweightedDie> {
     private List<UnweightedDie> underlying_list;
 
     protected List<UnweightedDie> DieExpressionToDieList(DieExpression de) {
+        //TODO: implement error handling
         List<UnweightedDie> ls = new ArrayList<UnweightedDie>();
-
+        String expr = de.getExpression();
+        String[] dice_split = expr.split("\\+");
+        for (String die : dice_split) {
+            String[] die_specifics = expr.split("d");
+            Integer amt = Integer.parseInt(die_specifics[0]);
+            Integer val = Integer.parseInt(die_specifics[1]);
+            UnweightedDie ud = new UnweightedDie(val);
+            while (amt-- > 0) {
+                ls.add(ud);
+            }
+        }
         return ls;
     }
 

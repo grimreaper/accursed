@@ -26,4 +26,5 @@ public class DieExpression {
     public DieExpression(@NotNull String expression) {
         this.expression = expression;
     }
+
 }
