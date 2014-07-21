@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/Theme.AppCompat" >
         <activity
             android:name=".HomeScreenActivity"
             android:label="@string/app_name" >
@@ -23,6 +23,20 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eitanadler.accursed.HomeScreenActivity" />
+        </activity>
+        <activity
+            android:name=".DiceDetails"
+            android:label="@string/title_activity_dice_details"
+            android:parentActivityName=".HomeScreenActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.eitanadler.accursed.HomeScreenActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

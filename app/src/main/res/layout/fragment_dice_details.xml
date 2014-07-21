@@ -9,8 +9,24 @@
     tools:context="com.eitanadler.accursed.DiceDetails$PlaceholderFragment">
 
     <TextView
-        android:text="@string/hello_world"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentStart="false"
+        android:hint="die expression" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Stats"
+        android:id="@+id/button"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentEnd="false" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"></TableLayout>
 </RelativeLayout>
