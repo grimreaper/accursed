@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public abstract class BaseDie {
     protected Map<Integer, Integer> sides = new HashMap<>();
-    protected Integer max_weight = new Integer(0);
+    protected Integer max_weight = 0;
 
     protected void addSide(Integer key, Integer weight) {
         assert(key != 0);
