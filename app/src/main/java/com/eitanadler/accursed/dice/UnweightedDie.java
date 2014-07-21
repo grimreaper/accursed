@@ -29,7 +29,7 @@ public class UnweightedDie extends BaseDie {
     public UnweightedDie(Integer sides) {
         if (BuildConfig.DEBUG && !this.sides.isEmpty()) { throw new AssertionError(); }
         List<Integer> list = new LinkedList<Integer>();
-        while (sides-- > 0) {
+        for (; sides > 0; sides--) {
             addSide(sides, 1);
         }
     }
