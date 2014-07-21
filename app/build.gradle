@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.eitanadler.accursed"
         minSdkVersion 17
-        targetSdkVersion 20
+        targetSdkVersion 17
         versionCode 1
         versionName "1.0"
     }
@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:18.0.+'
     compile 'com.android.support:gridlayout-v7:18.0.+'
     compile 'com.android.support:mediarouter-v7:18.0.+'
+    compile 'com.intellij:annotations:+@jar'
 }

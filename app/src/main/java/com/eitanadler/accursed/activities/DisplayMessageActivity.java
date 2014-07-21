@@ -1,4 +1,4 @@
-package com.eitanadler.accursed;
+package com.eitanadler.accursed.activities;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.eitanadler.accursed.R;
 
 public class DisplayMessageActivity extends ActionBarActivity {
 
