@@ -7,11 +7,12 @@ import java.util.Map;
  * Created by eax on 7/20/14.
  */
 public abstract class BaseDie {
-    protected Map<Integer, Integer> sides = new HashMap<Integer, Integer>();
+    protected Map<Integer, Integer> sides = new HashMap<>();
     protected Integer max_weight = new Integer(0);
 
-    protected void addSide(Integer value, Integer weight) {
-        this.sides.put(value, weight);
+    protected void addSide(Integer key, Integer weight) {
+        assert(key != 0);
+        this.sides.put(key, weight);
         this.max_weight += weight;
     }
 
@@ -26,7 +27,8 @@ public abstract class BaseDie {
     @Override
     public String toString() {
         return "BaseDie{" +
-                "sides=" + sides +
+                "test=" + sides.get(1) +
+                ", sides=" + sides +
                 ", max_weight=" + max_weight +
                 '}';
     }
