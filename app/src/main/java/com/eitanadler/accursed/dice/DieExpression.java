@@ -76,8 +76,8 @@ public class DieExpression {
         String[] dice_split = getDieParts(expr);
         for (String die : dice_split) {
             Integer[] val = getDieValues(die);
-            UnweightedDie ud = new UnweightedDie(val[0]);
-            while (val[1]-- > 0) {
+            UnweightedDie ud = new UnweightedDie(val[1]);
+            while (val[0]-- > 0) {
                 ls.add(ud);
             }
         }
